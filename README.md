@@ -1,6 +1,6 @@
 # Data Cleaning and Bias Calculation 
 
-## `prompt_bias_clean_cal_parallel.ipynb`
+## `preprocess_data.py`
 
 This notebook performs parallel processing of text inputs (like IAT stimuli) to compute bias scores based on predefined word pairings and valence associations.
 dask.config.set(scheduler='distributed')
@@ -29,7 +29,11 @@ Using dask ensures the workload is distributed across compute nodes effectively.
 #### `process_entry(entry)`
 - Helper function for parallel execution.
 - Extracts word pairs from a single text, labels them, and calculates the bias score using `d_score`.
-- **Returns:** `(index, score, formatted_pairs)`.
+#### `preprocess_with_slurm`
+- Helper function for parallel execution.
+- clean out iat word pairs.
+
+- **Returns:** `(iat)`.
 - This function is designed to operate independently on a single row of input. Each call to process_entry() is wrapped using dask.delayed() to build a computation graph instead of executing immediately.
 - The entire list of delayed tasks is executed in parallel using dask.compute(), which leverages SLURM-managed resources on HPC:
 
