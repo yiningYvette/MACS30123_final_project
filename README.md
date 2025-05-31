@@ -1,6 +1,6 @@
 # Data Cleaning and Bias Calculation 
 
-## `preprocess_data.py`
+## `prompt_bias_clean_cal_update.ipynb`
 
 This notebook performs parallel processing of text inputs (like IAT stimuli) to compute bias scores based on predefined word pairings and valence associations.
 dask.config.set(scheduler='distributed')
